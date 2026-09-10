@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { site, absoluteUrl } from "@/lib/site";
 import { categories } from "@/lib/data/categories";
 import { getHotGames, games } from "@/lib/data/games";
 import { vipData } from "@/lib/data/vip";
@@ -34,7 +34,7 @@ export default function HomePage() {
       "@type": "ListItem",
       position: i + 1,
       name: game.name,
-      url: new URL(`/games/${game.slug}`, site.url).href,
+      url: absoluteUrl(`/games/${game.slug}`),
     })),
   };
 

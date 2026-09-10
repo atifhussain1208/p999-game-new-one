@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { site } from "@/lib/site";
+import { site, absoluteUrl } from "@/lib/site";
 import { games, getGame, getGamesByCategory } from "@/lib/data/games";
 import { getCategory } from "@/lib/data/categories";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -29,7 +29,9 @@ export async function generateMetadata({
   const game = getGame(slug);
   if (!game) return {};
   return {
-    title: `${game.name} — Play on ${site.name}`,
+    // `absolute` stops the root layout's "%s | NovaPlay" template from
+    // appending the brand a second time (it's already in the title).
+    title: { absolute: `${game.name} — Play on ${site.name}` },
     description: `${game.tagline} ${game.description}`.slice(0, 158),
     alternates: { canonical: `/games/${game.slug}` },
     openGraph: {
@@ -56,8 +58,8 @@ export default async function GamePage({ params }: GamePageProps) {
     name: game.name,
     description: game.description,
     genre: category?.name,
-    image: new URL(game.image, site.url).href,
-    url: new URL(`/games/${game.slug}`, site.url).href,
+    image: absoluteUrl(game.image),
+    url: absoluteUrl(`/games/${game.slug}`),
     publisher: { "@type": "Organization", name: site.legalName },
     applicationCategory: "Game",
     operatingSystem: "iOS, Android",

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { site } from "@/lib/site";
+import { site, absoluteUrl } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -68,7 +68,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: site.legalName,
   url: site.url,
-  logo: new URL("/images/og-cover.jpg", site.url).href,
+  logo: absoluteUrl("/images/og-cover.jpg"),
 };
 
 const websiteJsonLd = {

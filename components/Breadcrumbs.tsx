@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 import styles from "./Breadcrumbs.module.css";
 
 export interface Crumb {
@@ -16,7 +16,7 @@ export default function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
       "@type": "ListItem",
       position: i + 1,
       name: crumb.label,
-      ...(crumb.href ? { item: new URL(crumb.href, site.url).href } : {}),
+      ...(crumb.href ? { item: absoluteUrl(crumb.href) } : {}),
     })),
   };
 
