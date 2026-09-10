@@ -1,0 +1,14 @@
+.header {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 8px 0 12px;
+}
+
+.lede {
+  color: var(--text-muted);
+  max-width: 62ch;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+}

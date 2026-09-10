@@ -198,3 +198,59 @@ export function MedalIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function GiftIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M3.5 11h17v9.5a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V11Z" />
+      <path d="M2.5 7.5h19V11h-19V7.5ZM12 7.5v14" />
+      <path d="M12 7.5S10.8 3 8.4 3a2.2 2.2 0 0 0 0 4.5H12Zm0 0s1.2-4.5 3.6-4.5a2.2 2.2 0 0 1 0 4.5H12Z" />
+    </svg>
+  );
+}
+
+export function CalendarIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" />
+      <path d="M3.5 9.5h17M8 3v4M16 3v4" />
+      <circle cx="8.5" cy="14" r="1" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="14" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function CashbackIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M14.5 9.2c-.5-.8-1.5-1.3-2.6-1.3-1.6 0-2.7.9-2.7 2.1 0 2.8 5.5 1.4 5.5 4.1 0 1.2-1.2 2.1-2.8 2.1-1.2 0-2.2-.5-2.7-1.3M12 6.2v11.6" />
+    </svg>
+  );
+}
+
+export function MailIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
+      <path d="m3.8 7 7.2 5.2a1.7 1.7 0 0 0 2 0L20.2 7" />
+    </svg>
+  );
+}
+
+export function ShieldIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 2.8 4.5 6v6c0 4.4 3.1 7.8 7.5 9.2 4.4-1.4 7.5-4.8 7.5-9.2V6L12 2.8Z" />
+      <path d="m8.8 12 2.2 2.2 4.2-4.4" />
+    </svg>
+  );
+}
+
+export function SparkIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 3v4M12 17v4M4.5 12h4M15.5 12h4M6.7 6.7l2.8 2.8M14.5 14.5l2.8 2.8M17.3 6.7l-2.8 2.8M9.5 14.5l-2.8 2.8" />
+    </svg>
+  );
+}

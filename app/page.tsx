@@ -90,12 +90,18 @@ export default function HomePage() {
             <div id="vip">
               <div className="section-head">
                 <h2>VIP Prestige</h2>
+                <Link href="/vip" className="section-head__link">
+                  View All →
+                </Link>
               </div>
               <VipSection data={vipData} />
             </div>
             <div>
               <div className="section-head">
                 <h2>Invite &amp; Earn</h2>
+                <Link href="/rewards" className="section-head__link">
+                  View All →
+                </Link>
               </div>
               <ReferralSection data={referralData} />
             </div>

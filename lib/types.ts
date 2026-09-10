@@ -34,3 +34,34 @@ export interface ReferralData {
   stats: { label: string; value: string }[];
   note: string;
 }
+
+export interface Reward {
+  slug: string;
+  title: string;
+  amount: string;
+  description: string;
+  icon: "gift" | "calendar" | "cashback" | "referral" | "trophy" | "medal";
+}
+
+export interface VipTier {
+  level: number;
+  name: string;
+  requirement: string;
+  levelUpBonus: string;
+  cashback: string;
+  withdrawalLimit: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface SupportChannel {
+  slug: string;
+  name: string;
+  detail: string;
+  availability: string;
+  href: string;
+  icon: "chat" | "mail" | "community";
+}
