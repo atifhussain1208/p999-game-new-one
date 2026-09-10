@@ -1,0 +1,30 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(53, 232, 113, 0.4);
+  color: var(--accent);
+  box-shadow: 0 0 14px rgba(53, 232, 113, 0.25);
+}
+
+.word {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+.word em {
+  font-style: normal;
+  color: var(--accent);
+}

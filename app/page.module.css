@@ -1,0 +1,47 @@
+.flame {
+  display: inline-grid;
+  place-items: center;
+  color: var(--danger);
+}
+
+.rewardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 4vw, 40px);
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .rewardsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.aboutGrid h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+.aboutGrid p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  max-width: 42ch;
+}
+
+@media (min-width: 720px) {
+  .aboutGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
