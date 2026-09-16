@@ -81,3 +81,4 @@ structured data are all generated from that one array.
   immutable cache headers (`next.config.ts`).
 - The only animations are CSS transitions; `prefers-reduced-motion` is
   respected. No third-party scripts or animation libraries.
+Staging environment test
