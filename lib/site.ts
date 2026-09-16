@@ -78,11 +78,11 @@ export function absoluteUrl(path = "/"): string {
 }
 
 export const site = {
-  name: "NovaPlay",
-  legalName: "NovaPlay Interactive",
-  tagline: "Next-Level Mobile Gaming",
+  name: "P999 Game",
+  legalName: "P999",
+  tagline: "P999 Game",
   description:
-    "NovaPlay is a premium mobile gaming platform featuring slots, fishing, mini games and card games, with VIP rewards and a referral program.",
+    "P999 Game one of the Pakistan's Top Earning Platform where users win Unlimited Real Cash prizes, Daily Rewards, Login Bonus and many more",
   url: SITE_URL,
   locale: "en_US",
   themeColor: "#0a120d",

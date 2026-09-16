@@ -10,7 +10,7 @@ export default function Logo() {
         <BoltIcon size={18} />
       </span>
       <span className={styles.word}>
-        Nova<em>Play</em>
+        P999<em>Game</em>
       </span>
     </Link>
   );
