@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site, absoluteUrl } from "@/lib/site";
 import { categories } from "@/lib/data/categories";
-import { getHotGames, games } from "@/lib/data/games";
+import { getHotGames } from "@/lib/data/games";
 import { vipData } from "@/lib/data/vip";
 import { referralData } from "@/lib/data/referral";
 import Hero from "@/components/Hero";
@@ -20,10 +20,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-// Fully static page — revalidate daily so catalogue edits roll out via ISR.
+// Revalidate the homepage once per day.
 export const revalidate = 86400;
-
-const downloadUrl = "https://999p999.com/?dl=51uk8f";
 
 export default function HomePage() {
   const hotGames = getHotGames();
@@ -44,44 +42,40 @@ export default function HomePage() {
     <>
       <JsonLd data={itemListJsonLd} />
 
+      {/* Hero */}
       <Hero />
 
-      {/* Primary P999 Game introduction and download CTA */}
+      {/* Intro */}
       <section
         className="section"
         id="p999-game"
         aria-labelledby="p999-game-heading"
       >
-        <div className="container">
-          <div className={styles.about}>
-            <h1 id="p999-game-heading">P999 Game</h1>
+        <div className={`container ${styles.about}`}>
+          <h1 id="p999-game-heading">P999 Game</h1>
 
-            <p>
-              P999 Game is an online gaming platform that brings different
-              casino-style, arcade, card, slot and quick-play games together
-              in one app. If you are looking for the P999 Game download, you
-              can use the download button below to access the supplied P999
-              download URL.
-            </p>
+          <p>
+            P999 Game is an online gaming platform that brings a wide range of
+            casino-style, slot, card, fishing and quick-play games together in
+            one app. For users in Pakistan searching for P999 Game, the main
+            appeal is having different game categories available from the same
+            platform instead of looking for each title separately.
+          </p>
 
-            <p>
-              The current P999 Game information provided for this website lists
-              version 1.1.22, an APK size of 10.6 MB, and Android 8 or above.
-              The listed developer name is P999 Official, with the latest
-              update information provided as September 18, 2026.
-            </p>
+          <p>
+            The P999 experience covers several types of games, including slots,
+            mini-games, fishing titles and card-based games. The current
+            catalogue on this website includes titles such as Aviator, Chicken
+            Road 2.0, JILI Slots, PG Slots, JILI Cards, Crash, Mines, Fortune
+            Gems, Happy Fishing, Super Ace and Fortune Tiger.
+          </p>
 
-            <div className={styles.downloadCta}>
-              <a
-                href={downloadUrl}
-                className="button button--primary"
-                target="_blank"
-                rel="nofollow sponsored"
-              >
-                Download P999 Game APK
-              </a>
-            </div>
-          </div>
+          <p>
+            This homepage gives you a starting point for the platform. You can
+            browse the game categories, see selected games, learn about the VIP
+            and referral sections, and use the dedicated pages when you need
+            more specific information.
+          </p>
         </div>
       </section>
 
@@ -92,20 +86,20 @@ export default function HomePage() {
       >
         <div className="container">
           <div className="section-head">
-            <h2 id="categories-heading">What can you play on P999?</h2>
+            <h2 id="categories-heading">Which types of games are available?</h2>
           </div>
 
           <p>
-            The P999 catalogue is divided into game categories so you can find
-            a title without searching through one long list. The current
-            categories include slots, fishing, mini-games and cards.
+            Different players look for different types of games. P999 organizes
+            its current catalogue into categories so you can move directly to
+            the type of game you want to explore.
           </p>
 
           <CategoryGrid categories={categories} />
         </div>
       </section>
 
-      {/* Hot games */}
+      {/* Hot Games */}
       <section
         className="section"
         id="games"
@@ -117,7 +111,7 @@ export default function HomePage() {
               <span className={styles.flame} aria-hidden="true">
                 <FlameIcon size={24} />
               </span>
-              Hot Games on P999
+              Popular P999 Games
             </h2>
 
             <Link href="/games" className="section-head__link">
@@ -126,109 +120,17 @@ export default function HomePage() {
           </div>
 
           <p>
-            Popular titles in the current P999 game catalogue include Aviator,
-            Chicken Road 2.0, JILI Slots, PG Slots, JILI Cards, Crash, Mines,
-            Fortune Gems, Happy Fishing, Super Ace, Fortune Tiger and Mahjong
-            Ways 2.
+            The P999 catalogue includes a mixture of fast-play games, slots,
+            fishing titles and card games. The selection below highlights games
+            from the current catalogue, while the dedicated Games page contains
+            the wider collection.
           </p>
 
           <GameGrid games={hotGames} />
         </div>
       </section>
 
-      {/* Download and installation guide */}
-      <section
-        className="section section--alt"
-        id="download"
-        aria-labelledby="download-heading"
-      >
-        <div className={`container ${styles.about}`}>
-          <h2 id="download-heading">
-            How do you download and install P999 Game?
-          </h2>
-
-          <p>
-            If you are using an Android phone and want the P999 Game APK,
-            start with the download button on this page. After the APK has
-            downloaded, open the file from your Downloads folder and follow
-            the Android installation prompts.
-          </p>
-
-          <div className={styles.aboutGrid}>
-            <div>
-              <h3>1. Download the APK</h3>
-              <p>
-                Select the P999 Game download button and wait for the APK file
-                to finish downloading.
-              </p>
-            </div>
-
-            <div>
-              <h3>2. Open the downloaded file</h3>
-              <p>
-                Find the APK in your browser downloads or file manager and tap
-                it to start installation.
-              </p>
-            </div>
-
-            <div>
-              <h3>3. Complete installation</h3>
-              <p>
-                If Android asks for permission to install from that source,
-                review the permission and continue only when you trust the
-                download source.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.downloadCta}>
-            <a
-              href={downloadUrl}
-              className="button button--primary"
-              target="_blank"
-              rel="nofollow sponsored"
-            >
-              Download P999 Game
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Login and registration */}
-      <section
-        className="section"
-        id="login"
-        aria-labelledby="login-heading"
-      >
-        <div className={`container ${styles.about}`}>
-          <h2 id="login-heading">How does P999 Game login and registration work?</h2>
-
-          <p>
-            The current registration information supplied for P999 includes
-            phone number and OTP verification. Gmail registration is also
-            available, and a password is required for account access.
-          </p>
-
-          <p>
-            For phone registration, enter your phone number, complete the OTP
-            verification and finish the account setup. If you use Gmail,
-            follow the registration option shown in the current application.
-          </p>
-
-          <p>
-            Keep your password and OTP private. Do not send verification codes
-            to another person claiming they need the code to activate your
-            account or process a withdrawal.
-          </p>
-
-          <p>
-            Already have an account? Use the login option inside the
-            application and enter the credentials associated with your account.
-          </p>
-        </div>
-      </section>
-
-      {/* Game library explanation */}
+      {/* Game library */}
       <section
         className="section section--alt"
         id="game-library"
@@ -236,33 +138,35 @@ export default function HomePage() {
       >
         <div className={`container ${styles.about}`}>
           <h2 id="game-library-heading">
-            Which P999 games are available?
+            What can you find in the P999 game library?
           </h2>
 
           <p>
-            The current P999 game catalogue used on this website contains
-            titles across several categories. The full list is available on
-            the dedicated Games page, while the homepage highlights selected
-            titles.
+            The game library is built around several different styles of play.
+            Rather than treating every title as the same type of game, the
+            catalogue separates games by category. This makes it easier to
+            browse the platform based on the type of game you prefer.
           </p>
 
           <div className={styles.aboutGrid}>
             <div>
-              <h3>Slots</h3>
+              <h3>Slot Games</h3>
               <p>
-                JILI Slots, PG Slots, WG Slot, Crazy 777, Fortune, Garuda 500,
-                Fortune Gems, Fortune Gems 2, Fortune Gems 3, Super Ace,
-                Wild Bounty, Fortune Rabbit, Anubis Wrath, Treasures of Azpec,
-                Fortune Guiden, Fortune Tiger and Mahjong Ways 2.
+                The slot selection includes JILI Slots, PG Slots, WG Slot,
+                Crazy 777, Fortune, Garuda 500, Fortune Gems, Fortune Gems 2,
+                Fortune Gems 3, Super Ace, Wild Bounty, Fortune Rabbit,
+                Anubis Wrath, Treasures of Azpec, Fortune Guiden, Fortune
+                Tiger and Mahjong Ways 2.
               </p>
             </div>
 
             <div>
               <h3>Mini Games</h3>
               <p>
-                Aviator, Chicken Road 2.0, Piggy Bank, 9 Wickets Sports,
-                Crash, Mines, Chicken Road, Chicken Dash, Go Rush, Expand Bets,
-                Mahjong Race, Blinko and Boom Red Packet.
+                The mini-game collection includes Aviator, Chicken Road 2.0,
+                Piggy Bank, 9 Wickets Sports, Crash, Mines, Chicken Road,
+                Chicken Dash, Go Rush, Expand Bets, Mahjong Race, Blinko and
+                Boom Red Packet.
               </p>
             </div>
 
@@ -270,85 +174,154 @@ export default function HomePage() {
               <h3>Fishing and Cards</h3>
               <p>
                 Happy Fishing is included in the fishing category, while the
-                current cards selection includes JILI Cards and Dragon vs
-                Tiger.
+                current card-related selection includes JILI Cards and Dragon
+                vs Tiger.
               </p>
             </div>
           </div>
 
-          <div className={styles.textCta}>
+          <p>
             <Link href="/games" className="section-head__link">
-              Explore All P999 Games →
+              Browse the full P999 game collection →
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 
-      {/* Payment and withdrawal */}
+      {/* How the platform works */}
       <section
         className="section"
-        id="withdrawal"
-        aria-labelledby="withdrawal-heading"
+        id="how-it-works"
+        aria-labelledby="how-it-works-heading"
       >
         <div className={`container ${styles.about}`}>
-          <h2 id="withdrawal-heading">
-            What payment and withdrawal options does P999 support?
+          <h2 id="how-it-works-heading">
+            How does the P999 Game platform work?
           </h2>
 
           <p>
-            The current payment information supplied for P999 includes
-            Easypaisa, JazzCash and USDT through the TRC20 network.
-          </p>
-
-          <p>
-            The supplied minimum withdrawal amount is 50,000. The provided
-            information states that the withdrawal process takes a few
-            minutes, while the exact transaction time should be checked
-            against the current account interface.
-          </p>
-
-          <p>
-            A withdrawal password is required for the current setup. Keep this
-            password separate from your normal login information and never
-            share it with another person.
+            Getting started with an online gaming platform usually involves
+            three basic stages: accessing the application, creating or
+            accessing an account, and choosing the games you want to play.
           </p>
 
           <div className={styles.aboutGrid}>
             <div>
-              <h3>Easypaisa</h3>
+              <h3>Choose your game</h3>
               <p>
-                Easypaisa is listed among the payment options supplied for the
-                current P999 setup.
+                Start by browsing the available categories and selecting a
+                title that interests you.
               </p>
             </div>
 
             <div>
-              <h3>JazzCash</h3>
+              <h3>Create or access your account</h3>
               <p>
-                JazzCash is also listed as a payment option for the current
-                setup.
+                The current registration information supplied for P999 includes
+                phone number and OTP verification. Gmail registration is also
+                available, with a password required for account access.
               </p>
             </div>
 
             <div>
-              <h3>USDT-TRC20</h3>
+              <h3>Use the account features</h3>
               <p>
-                The supplied information also lists USDT using the TRC20
-                network.
+                Once signed in, the platform provides access to the available
+                game and account features shown in the current application.
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <p className={styles.textCta}>
-            Need account or withdrawal help?{" "}
-            <Link href="/support">Visit P999 Support →</Link>
+      {/* Account and Login */}
+      <section
+        className="section section--alt"
+        id="login"
+        aria-labelledby="login-heading"
+      >
+        <div className={`container ${styles.about}`}>
+          <h2 id="login-heading">
+            What should you know about P999 Game login?
+          </h2>
+
+          <p>
+            P999 registration can be completed using a phone number and OTP
+            according to the current information supplied for this website.
+            Gmail registration is also available. A password is required for
+            account access.
+          </p>
+
+          <p>
+            If you already have an account, use the login option provided in the
+            current application and enter the credentials associated with your
+            account.
+          </p>
+
+          <p>
+            Keep your login details private. Your OTP, password and withdrawal
+            password should not be shared with another person who contacts you
+            unexpectedly.
+          </p>
+
+          <p>
+            For more account-related information, visit{" "}
+            <Link href="/support">P999 Support</Link>.
           </p>
         </div>
       </section>
 
-      {/* VIP + Referral */}
+      {/* P999 App information */}
       <section
         className="section"
+        id="app-information"
+        aria-labelledby="app-information-heading"
+      >
+        <div className={`container ${styles.about}`}>
+          <h2 id="app-information-heading">
+            What are the current P999 Game app details?
+          </h2>
+
+          <p>
+            The current app information supplied for this website identifies
+            the application as P999 Game, version 1.1.22. The listed APK size
+            is 10.6 MB and the stated Android requirement is Android 8 or
+            above.
+          </p>
+
+          <div className={styles.aboutGrid}>
+            <div>
+              <h3>Version</h3>
+              <p>1.1.22</p>
+            </div>
+
+            <div>
+              <h3>APK Size</h3>
+              <p>10.6 MB</p>
+            </div>
+
+            <div>
+              <h3>Android Requirement</h3>
+              <p>Android 8+</p>
+            </div>
+          </div>
+
+          <p>
+            The update information supplied for this version is September 18,
+            2026, and the listed developer name is P999 Official.
+          </p>
+
+          <p>
+            App specifications can change with future releases, so the
+            information should be updated whenever a new version replaces the
+            current one.
+          </p>
+        </div>
+      </section>
+
+      {/* Rewards and VIP */}
+      <section
+        className="section section--alt"
         id="rewards"
         aria-labelledby="rewards-heading"
       >
@@ -361,6 +334,7 @@ export default function HomePage() {
             <div id="vip">
               <div className="section-head">
                 <h2>VIP Prestige</h2>
+
                 <Link href="/vip" className="section-head__link">
                   View All →
                 </Link>
@@ -372,6 +346,7 @@ export default function HomePage() {
             <div>
               <div className="section-head">
                 <h2>Invite &amp; Earn</h2>
+
                 <Link href="/rewards" className="section-head__link">
                   View All →
                 </Link>
@@ -383,7 +358,125 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Safety and download-source guidance */}
+      {/* Payments and withdrawals */}
+      <section
+        className="section"
+        id="payments"
+        aria-labelledby="payments-heading"
+      >
+        <div className={`container ${styles.about}`}>
+          <h2 id="payments-heading">
+            Which payment options are listed for P999?
+          </h2>
+
+          <p>
+            The current payment information supplied for P999 includes
+            Easypaisa, JazzCash and USDT through the TRC20 network.
+          </p>
+
+          <p>
+            Payment availability and account options should always be checked
+            inside the current application before starting a transaction.
+          </p>
+
+          <div className={styles.aboutGrid}>
+            <div>
+              <h3>Easypaisa</h3>
+              <p>
+                Easypaisa is listed among the payment methods supplied for the
+                current P999 setup.
+              </p>
+            </div>
+
+            <div>
+              <h3>JazzCash</h3>
+              <p>
+                JazzCash is also listed as a current payment option.
+              </p>
+            </div>
+
+            <div>
+              <h3>USDT-TRC20</h3>
+              <p>
+                The supplied information includes USDT using the TRC20 network.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Withdrawal */}
+      <section
+        className="section section--alt"
+        id="withdrawal"
+        aria-labelledby="withdrawal-heading"
+      >
+        <div className={`container ${styles.about}`}>
+          <h2 id="withdrawal-heading">
+            What should you know about P999 Game withdrawals?
+          </h2>
+
+          <p>
+            The current withdrawal information supplied for P999 lists a
+            minimum withdrawal amount of 50,000. A withdrawal password is
+            required as part of the withdrawal process.
+          </p>
+
+          <p>
+            The supplied information states that the withdrawal process takes
+            a few minutes. Actual transaction timing should be checked against
+            the current account interface and transaction status.
+          </p>
+
+          <p>
+            Before submitting a withdrawal, review the amount, payment method
+            and account information shown on the withdrawal screen.
+          </p>
+
+          <p>
+            For detailed account assistance, visit{" "}
+            <Link href="/support">P999 Support</Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* Responsible use */}
+      <section
+        className="section"
+        id="responsible-gaming"
+        aria-labelledby="responsible-gaming-heading"
+      >
+        <div className={`container ${styles.about}`}>
+          <h2 id="responsible-gaming-heading">
+            What should you consider before playing?
+          </h2>
+
+          <p>
+            P999 includes games that can involve money, so users should treat
+            deposits and game spending as financial decisions rather than
+            guaranteed income.
+          </p>
+
+          <p>
+            Do not assume that a game will produce a particular result, and do
+            not treat a predictor, hack, trick or modified APK as a reliable
+            method for generating guaranteed returns.
+          </p>
+
+          <p>
+            If you choose to use the platform, set your own spending limits and
+            avoid using money you cannot afford to lose.
+          </p>
+
+          <p>
+            <Link href="/support#responsible">
+              Read the responsible gaming information →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Safety */}
       <section
         className="section section--alt"
         id="safety"
@@ -395,91 +488,91 @@ export default function HomePage() {
           </h2>
 
           <p>
-            Search results for P999 include multiple websites and APK listings,
-            and published specifications are not always consistent. That makes
-            checking the current version and download source useful before
-            installing an APK.
+            P999-related search results contain multiple websites and APK
+            listings. Published specifications can differ between pages, so
+            checking the current version information is useful before
+            installing an application.
           </p>
 
           <div className={styles.aboutGrid}>
             <div>
               <h3>Check the version</h3>
               <p>
-                The current information supplied for this website lists version
+                The current version information supplied for this website is
                 1.1.22.
               </p>
             </div>
 
             <div>
-              <h3>Check your Android version</h3>
+              <h3>Check device compatibility</h3>
               <p>
-                The supplied requirement for the current version is Android 8
-                or above.
+                The supplied Android requirement for the current version is
+                Android 8 or above.
               </p>
             </div>
 
             <div>
-              <h3>Avoid modified APK claims</h3>
+              <h3>Be careful with modified APKs</h3>
               <p>
-                Be careful with downloads advertised as hacks, unlimited-money
-                versions, predictors or modified APKs. These are not the same
-                as the standard application.
+                Downloads advertised as hacks, unlimited-money versions,
+                predictors or modified APKs should not be treated as the
+                standard P999 application.
               </p>
             </div>
           </div>
 
           <p>
-            Never share your OTP, login password or withdrawal password with
-            someone who contacts you unexpectedly.
+            Keep your passwords and OTPs private, and verify the information
+            shown in your own account before making a payment or withdrawal.
           </p>
         </div>
       </section>
 
-      {/* Why P999 */}
+      {/* Why players explore P999 */}
       <section
         className="section"
         id="about"
         aria-labelledby="about-heading"
       >
         <div className={`container ${styles.about}`}>
-          <h2 id="about-heading">Why use the P999 Game platform?</h2>
+          <h2 id="about-heading">Why do players explore P999 Game?</h2>
 
           <p>
-            The main appeal of P999 is the variety of games available from one
-            application. The current catalogue covers slots, fishing,
-            mini-games and cards, giving users different types of games to
-            browse.
+            One reason users search for P999 Game is the range of titles
+            available from the same platform. The current catalogue brings
+            together slots, mini-games, fishing games and card-related titles.
           </p>
 
           <p>
-            The platform also brings account features, rewards, VIP information
-            and payment functionality into the same environment. Instead of
-            searching separate pages for every basic question, the main P999
-            sections on this website connect those topics together.
+            Another practical advantage of the site structure is that the
+            information is separated by purpose. The Games page is for the
+            catalogue, Rewards covers the reward and referral area, VIP has its
+            own section, and Support is available for account-related
+            questions.
           </p>
 
           <div className={styles.aboutGrid}>
             <div>
-              <h3>{games.length}+ Games Listed</h3>
+              <h3>A Broad Game Selection</h3>
               <p>
-                Browse the current P999 catalogue by category and open the
-                dedicated Games page for the complete selection.
+                Browse different categories rather than relying on a single
+                game type.
               </p>
             </div>
 
             <div>
-              <h3>VIP and Rewards</h3>
+              <h3>Account Features</h3>
               <p>
-                The homepage includes access to the current VIP and referral
-                sections, with dedicated pages available for more information.
+                Registration, login and account-related features are available
+                through the P999 platform.
               </p>
             </div>
 
             <div>
-              <h3>Support Information</h3>
+              <h3>Rewards and VIP</h3>
               <p>
-                Account, login and other assistance can be directed to the
-                P999 Support section.
+                The platform includes dedicated areas for VIP and referral
+                information.
               </p>
             </div>
           </div>
@@ -495,9 +588,17 @@ export default function HomePage() {
         <div className={`container ${styles.about}`}>
           <h2 id="faq-heading">P999 Game FAQs</h2>
 
-          <div className={styles.faqList}>
+          <div className={styles.aboutGrid}>
             <div>
-              <h3>What is the current P999 Game version?</h3>
+              <h3>What is P999 Game?</h3>
+              <p>
+                P999 Game is an online gaming platform featuring different
+                categories such as slots, mini-games, fishing and cards.
+              </p>
+            </div>
+
+            <div>
+              <h3>What is the current P999 version?</h3>
               <p>
                 The current version information supplied for this website is
                 1.1.22.
@@ -505,22 +606,21 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3>What is the P999 APK size?</h3>
+              <h3>How large is the P999 APK?</h3>
               <p>
                 The supplied APK size is 10.6 MB.
               </p>
             </div>
 
             <div>
-              <h3>Which Android versions are supported?</h3>
+              <h3>Which Android version is required?</h3>
               <p>
-                The supplied requirement for the current version is Android 8
-                or above.
+                The supplied requirement is Android 8 or above.
               </p>
             </div>
 
             <div>
-              <h3>How can I register for P999?</h3>
+              <h3>How can I create a P999 account?</h3>
               <p>
                 The supplied registration options include phone number and OTP
                 verification, as well as Gmail registration. A password is
@@ -529,22 +629,29 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3>Does P999 support Easypaisa and JazzCash?</h3>
+              <h3>Does P999 support Easypaisa?</h3>
               <p>
-                Yes. Both Easypaisa and JazzCash are listed in the current
-                payment information supplied for P999.
+                Yes. Easypaisa is listed in the current payment information
+                supplied for P999.
               </p>
             </div>
 
             <div>
-              <h3>Can P999 withdrawals use USDT?</h3>
+              <h3>Does P999 support JazzCash?</h3>
+              <p>
+                Yes. JazzCash is also listed as a current payment option.
+              </p>
+            </div>
+
+            <div>
+              <h3>Can P999 use USDT?</h3>
               <p>
                 The supplied payment information includes USDT-TRC20.
               </p>
             </div>
 
             <div>
-              <h3>What is the minimum P999 withdrawal?</h3>
+              <h3>What is the minimum withdrawal?</h3>
               <p>
                 The supplied minimum withdrawal amount is 50,000.
               </p>
@@ -557,65 +664,77 @@ export default function HomePage() {
                 password is required.
               </p>
             </div>
-
-            <div>
-              <h3>Can I download a P999 MOD APK?</h3>
-              <p>
-                Modified APKs are different from the standard application.
-                Avoid downloads making claims about hacks, unlimited money or
-                guaranteed game predictions.
-              </p>
-            </div>
-
-            <div>
-              <h3>Where can I find the full P999 game list?</h3>
-              <p>
-                Visit the dedicated <Link href="/games">P999 Games page</Link>{" "}
-                to browse the current catalogue.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Internal navigation */}
+      <section className="section" aria-labelledby="explore-heading">
+        <div className={`container ${styles.about}`}>
+          <h2 id="explore-heading">Explore the P999 sections</h2>
+
+          <p>
+            Use the dedicated pages when you want information about one part
+            of the platform instead of reading everything on the homepage.
+          </p>
+
+          <div className={styles.aboutGrid}>
+            <div>
+              <h3>
+                <Link href="/games">P999 Games</Link>
+              </h3>
+              <p>
+                Browse the available games and categories.
+              </p>
+            </div>
+
+            <div>
+              <h3>
+                <Link href="/rewards">P999 Rewards</Link>
+              </h3>
+              <p>
+                View the available reward and referral information.
+              </p>
+            </div>
+
+            <div>
+              <h3>
+                <Link href="/vip">P999 VIP</Link>
+              </h3>
+              <p>
+                Learn more about the VIP section.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            <Link href="/support">Need help? Visit P999 Support →</Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Final homepage CTA */}
       <section
-        className="section"
-        id="download-final"
-        aria-labelledby="download-final-heading"
+        className="section section--alt"
+        id="next-step"
+        aria-labelledby="next-step-heading"
       >
         <div className={`container ${styles.about}`}>
-          <h2 id="download-final-heading">
-            Ready to download P999 Game?
+          <h2 id="next-step-heading">
+            Start by exploring the P999 Game catalogue
           </h2>
 
           <p>
-            If your Android device meets the supplied requirements and you want
-            to install the current P999 Game APK, use the download button below.
-            After installation, create or access your account and review the
-            payment and withdrawal information shown inside the application.
+            If you are new to P999, start with the Games page and browse the
+            available categories. When you need account, payment or withdrawal
+            information, use the relevant section rather than relying on an
+            old third-party guide.
           </p>
 
-          <div className={styles.downloadCta}>
-            <a
-              href={downloadUrl}
-              className="button button--primary"
-              target="_blank"
-              rel="nofollow sponsored"
-            >
-              Download P999 Game APK
-            </a>
-          </div>
-
-          <p className={styles.textCta}>
-            Looking for something specific?{" "}
-            <Link href="/games">Browse Games</Link>
-            {" · "}
-            <Link href="/rewards">View Rewards</Link>
-            {" · "}
-            <Link href="/vip">View VIP</Link>
-            {" · "}
-            <Link href="/support">Get Support</Link>
+          <p>
+            <Link href="/games" className="section-head__link">
+              Explore P999 Games →
+            </Link>
           </p>
         </div>
       </section>
